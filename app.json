@@ -1,6 +1,6 @@
 {
     "name": "CloneBot",
-    "description": "When you going to send file on telegram channel this bot will ",
+    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
     "keywords": [
       "telegram",
       "auto-filter",
@@ -12,23 +12,28 @@
       "search",
       "channel",
       "index",
-
+      "inline"
     ],
-    "website": "https://github.com/kangScripter/Clone-BOT",
-    "repository": "https://github.com/kangScripter/Clone-BOT",
+    "website": "",
+    "repository": "",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
-            "value": ""
+            "value": "",
+            "required": false
+            
         },
-        },
+        
+      
+        
+    },
     "addons": [],
+    "stack": "container"
     "buildpacks": [
         {
             "url": "heroku/python"
         }
     ],
-    "stack": "container",
     "formation": {
         "worker": {
             "quantity": 1,
@@ -36,4 +41,3 @@
         }
     }
 }
-    
