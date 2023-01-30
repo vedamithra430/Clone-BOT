@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 RUN apt-get -qq update
 RUN apt-get -qq install -y --no-install-recommends curl git gnupg2 unzip wget pv jq
+
 #RUN apt install install build-essential
 #RUN apt install zlib1g-dev 
 # add mkvtoolnix
@@ -70,7 +71,8 @@ RUN aria2c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && 
 
 #install rmega
 RUN gem install rmega
-
+RUN pip uninstall protobuf
+RUN pip install --no-binary protobuf protobuf
 # Copies config(if it exists)
 COPY . .
 
