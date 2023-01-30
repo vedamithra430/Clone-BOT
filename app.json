@@ -16,28 +16,24 @@
     ],
     "website": "https://github.com/kangScripter/Clone-BOT",
     "repository": "https://github.com/kangScripter/Clone-BOT",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your bot token.",
+            "value": ""
+        },
+        },
     "addons": [],
-
     "buildpacks": [
-
         {
-
             "url": "heroku/python"
-
         }
-
     ],
-
+    "stack": "container",
     "formation": {
-
         "worker": {
-
             "quantity": 1,
-
             "size": "free"
-
         }
-
     }
-
 }
+    
