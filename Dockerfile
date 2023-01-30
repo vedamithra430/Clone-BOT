@@ -4,14 +4,6 @@ WORKDIR /usr/src/app
 SHELL ["/bin/bash", "-c"]
 RUN chmod 777 /usr/src/app
 
-RUN apt-get -qq update && DEBIAN_FRONTEND="noninteractive" \
-    apt-get -qq install -y locales python3 python3-pip \
-    libmagic-dev p7zip-full p7zip-rar unzip && locale-gen en_US.UTF-8
-RUN wget -q -O - https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | apt-key add - && \
-    wget -qO - https://ftp-master.debian.org/keys/archive-key-10.asc | apt-key add -
-RUN sh -c 'echo "deb https://mkvtoolnix.download/debian/ buster main" >> /etc/apt/sources.list.d/bunkus.org.list' && \
-    sh -c 'echo deb http://deb.debian.org/debian buster main contrib non-free | tee -a /etc/apt/sources.list' && apt update && apt install -y mkvtoolnix
-
 # install required packages
 RUN apt-get update && apt-get install -y software-properties-common && \
     rm -rf /var/lib/apt/lists/* && \
