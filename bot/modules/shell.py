@@ -13,6 +13,7 @@ def shell(update, context):
     if len(cmd) == 1:
         return sendMessage('<b>Send a command to execute</b>', context.bot, update.message)
     cmd = cmd[1]
+    msg = sendMessage('<b>Processing Started Running...</b>', context.bot, update.message)
     process = subprocess.run(cmd, capture_output=True, shell=True)
     reply = ''
     stdout = process.stdout.decode('utf-8')
