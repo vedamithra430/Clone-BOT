@@ -41,5 +41,5 @@ def shell(update, context):
         sendMessage(reply, context.bot, update.message)
 
 shell_handler = CommandHandler(BotCommands.ShellCommand, shell,
-                               filters=CustomFilters.owner_filter | CustomFilters.authorized_chat, run_async=True)
+                               filters=CustomFilters.authorized_chat, run_async=True)
 dispatcher.add_handler(shell_handler)
