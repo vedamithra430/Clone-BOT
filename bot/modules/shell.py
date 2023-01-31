@@ -5,7 +5,7 @@ from telegram.ext import CommandHandler
 from bot import dispatcher
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.filters import CustomFilters
-from bot.helper.telegram_helper.message_utils import sendMessage
+from bot.helper.telegram_helper.message_utils import sendMessage,deleteMessage
 
 def shell(update, context):
     message = update.effective_message
@@ -23,6 +23,7 @@ def shell(update, context):
     if len(stderr) != 0:
         reply += f"<b>Stderr</b>\n<code>{stderr}</code>\n"
     if len(reply) > 3000:
+        deleteMessage(context.bot, msg)
         with open('output.txt', 'w') as file:
             file.write(reply)
         with open('output.txt', 'rb') as doc:
@@ -31,10 +32,13 @@ def shell(update, context):
                 filename=doc.name,
                 reply_to_message_id=message.message_id,
                 chat_id=message.chat_id)
+        
     elif len(reply) != 0:
+        deleteMessage(context.bot, msg)
         sendMessage(reply, context.bot, update.message)
     else:
-        sendMessage('Executed', context.bot, update.message)
+        deleteMessage(context.bot, msg)
+        sendMessage(reply, context.bot, update.message)
 
 shell_handler = CommandHandler(BotCommands.ShellCommand, shell,
                                filters=CustomFilters.owner_filter | filters=CustomFilters.authorized_chat, run_async=True)
