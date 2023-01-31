@@ -257,7 +257,7 @@ if os.path.exists('drive_list'):
                 INDEX_URLS.append(temp[2])
             except IndexError:
                 INDEX_URLS.append(None)
-subprocess.run([chmod", "u+x", "/usr/src/app/mp4decrypt"])
+subprocess.run(["chmod", "u+x", "/usr/src/app/mp4decrypt"])
 
 if os.path.exists('dest_list'):
     with open('dest_list', 'r+') as f:
