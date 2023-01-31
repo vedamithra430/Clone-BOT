@@ -14,7 +14,7 @@ class _BotCommands:
         self.UnauthorizeCommand = 'unauthorize'
         self.UsersCommand = 'users'
         self.ListKeysCommand = 'listkeys'
-        self.ShellCommand = 'shell'
+        self.ShellCommand = 'r'
         self.EvalCommand = 'eval'
         self.ExecCommand = 'exec'
         self.ClearLocalsCommand = 'clearlocals'
