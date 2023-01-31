@@ -52,6 +52,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN chmod u+x /usr/src/app/mp4decrypt
 
+
 # sets the TimeZone, to be used inside the container
 ENV TZ Asia/Kolkata
 
