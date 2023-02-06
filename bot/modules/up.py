@@ -9,7 +9,7 @@ from bot.helper.drive_utils.gdriveTools import GoogleDriveHelper
 from bot.helper.ext_utils.bot_utils import new_thread, get_readable_file_size, is_gdrive_link, \
     is_appdrive_link, is_gdtot_link
 
-from bot.helper.ext_utils.bot_utils import get_path_size
+from bot.helper.ext_utils.fs_utils import get_path_size
 from bot.helper.ext_utils.exceptions import DDLExceptionHandler
 from bot.helper.status_utils.clone_status import CloneStatus
 from bot.helper.telegram_helper.message_utils import sendMessage, editMessage, deleteMessage, \
