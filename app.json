@@ -1,0 +1,23 @@
+{
+    "name": "clone-Bot",
+    "description": "Telegram bot for executing shell commands",
+    "keywords": [
+      "telegram",
+      "bot",
+      "shell"
+    ],
+    "repository": "https://github.com/vedamithra430/Clone-BOT",
+    "website": "https://github.com/vedamithra430/Clone-BOT",
+    "success_url": "https://github.com/vedamithra430/Clone-BOT",
+    "stack": "container",
+    "env": {
+      "BOT_TOKEN": {
+        "description": "Get your bot token by talking to @Botfather", 
+        "value": "1835113477:AAHyx-mzepmgHAFt-YQrRlTelI8cRN3obh0"
+      },
+      "OWNER_ID": {
+        "description": "Your telegram ID (not username)",
+        "value": "617075060"
+      }
+    }
+}
