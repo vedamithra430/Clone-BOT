@@ -36,7 +36,7 @@ def up(update, context):
         up_dir = PurePath(up_path).parents[0]
         size = get_path_size(f'{up_dir}/{name}')
         sendMessage(f"Uploading: {name}",context.bot,update.message)
-        drive = GoogleDriveHelper(name,up_dir ,size ,listener)
+        drive = GoogleDriveHelper(name,ulistener)
         upload_status = UploadStatus(drive, size, gid, listener)
             
         '''
