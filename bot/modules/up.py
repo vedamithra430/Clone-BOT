@@ -3,7 +3,7 @@ import string
 
 from telegram.ext import CommandHandler
 
-from bot import LOGGER, dispatcher, CLONE_LIMIT, download_dict, download_dict_lock, Interval
+from bot import LOGGER,DOWNLOAD_DIR, dispatcher, CLONE_LIMIT, download_dict, download_dict_lock, Interval
 from bot.helper.download_utils.ddl_generator import appdrive, gdtot
 from bot.helper.drive_utils.gdriveTools import GoogleDriveHelper
 from bot.helper.ext_utils.bot_utils import new_thread, get_readable_file_size, is_gdrive_link, \
