@@ -25,7 +25,7 @@ def up(update, context):
         uid = update.message.message_id
         tag = update.message.from_user.mention_html(update.message.from_user.first_name)
         gid = ''.join(random.SystemRandom().choices(string.ascii_letters + string.digits, k=12))
-        listener = CompressListener(context.bot, update.message, isZip=False, extract=False, isQbit=False, isLeech=False, tag=tag)
+        listener = CompressListener(context.bot, update.message, is_archive=False, is_extract=False,)
         #up_dir = f'{DOWNLOAD_DIR}{uid}'
         name = " ".join(map(str, args[1:]))# args[1:]
        # subprocess.run(["mv",name,up_dir])
