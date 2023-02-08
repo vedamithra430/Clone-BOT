@@ -22,12 +22,13 @@ from bot.helper.status_utils.upload_status import UploadStatus
 def up(update, context):
       args = update.message.text.split(" ", maxsplit=2)
       if(len(args) > 1):
+        msg2 = sendMessage(f"Processing..",context.bot,update.message) 
         name = " ".join(map(str, args[1:]))
         result = subprocess.run(['curl', '-T', name, 'https://pixeldrain.com/api/file/'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         file_id = re.search(r'"id":"(\w+)"', result.stdout.decode()).group(1)
-        print(file_id)
         msg = f"https://pixeldrain.com/api/file/{file_id}"
-        sendMessage(msg,context.bot,update.message) 
+        sendMessage(msg,context.bot,update.message)
+        deleteMessage(msg2,context.bot,update.message)
         
         """uid = update.message.message_id
         tag = update.message.from_user.mention_html(update.message.from_user.first_name)
