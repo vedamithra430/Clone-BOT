@@ -28,6 +28,7 @@ def up(update, context):
         file_id = re.search(r'"id":"(\w+)"', result.stdout.decode()).group(1)
         msg = f"https://pixeldrain.com/api/file/{file_id}"
         sendMessage(msg,context.bot,update.message)
+        subprocess.run(["rm", "-rf",name])
         deleteMessage(msg2,context.bot,update.message)
         
         """uid = update.message.message_id
