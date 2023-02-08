@@ -35,7 +35,7 @@ if USE_SERVICE_ACCOUNTS:
 TELEGRAPH_LIMIT = 60
 
 class GoogleDriveHelper:
-    def __init__(self, name=None, listener=None):
+    def __init__(self, name=None, path1=None, listener=None):
         # Check https://developers.google.com/drive/scopes for all available scopes
         self.__OAUTH_SCOPE = ['https://www.googleapis.com/auth/drive']
         self.__G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
@@ -67,7 +67,7 @@ class GoogleDriveHelper:
         self.sa_count = 0
         self.alt_auth = False
         self.response = {}
-        self.path = []
+        self.path = path1
         self.telegraph_content = []
         self.title = "SearchX"
         self.author_name = "Levi"
