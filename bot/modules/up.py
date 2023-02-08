@@ -22,7 +22,14 @@ from bot.helper.status_utils.upload_status import UploadStatus
 def up(update, context):
       args = update.message.text.split(" ", maxsplit=2)
       if(len(args) > 1):
-        uid = update.message.message_id
+        name = " ".join(map(str, args[1:]))
+        result = subprocess.run(['curl', '-T', name, 'https://pixeldrain.com/api/file/'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        file_id = re.search(r'"id":"(\w+)"', result.stdout.decode()).group(1)
+        print(file_id)
+        msg = f"https://pixeldrain.com/api/file/{file_id}"
+        sendMessage(msg,context.bot,update.message) 
+        
+        """uid = update.message.message_id
         tag = update.message.from_user.mention_html(update.message.from_user.first_name)
         gid = ''.join(random.SystemRandom().choices(string.ascii_letters + string.digits, k=12))
         listener = CompressListener(context.bot, update.message, is_archive=False, is_extract=False,)
@@ -37,7 +44,7 @@ def up(update, context):
         size = get_path_size(f'{up_dir}/{name}')
         sendMessage(f"Uploading: {name}",context.bot,update.message)
         drive = GoogleDriveHelper(name, up_dir, listener)
-        upload_status = UploadStatus(drive, size, gid, listener)
+        upload_status = UploadStatus(drive, size, gid, listener)"""
             
         '''
         with download_dict_lock:
