@@ -24,5 +24,5 @@ class _BotCommands:
         self.LogCommand = 'log'
         self.RestartCommand = 'restart'
         self.HelpCommand = 'help'
-        self.UpCommand = 'up1'
+        self.UpCommand = 'up'
 BotCommands = _BotCommands()
