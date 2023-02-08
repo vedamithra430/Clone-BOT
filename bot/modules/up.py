@@ -51,7 +51,7 @@ def up(update, context):
             download_dict[uid] = upload_status
         update_all_messages()
         '''
-        drive.upload(name)
+        #drive.upload(name)
        
       else:
           sendMessage(f"Send File Name",context.bot,update.message) 
