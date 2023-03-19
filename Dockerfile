@@ -55,10 +55,10 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ Asia/Kolkata
 
 # rclone ,gclone and fclone
-RUN curl https://rclone.org/install.sh | bash && \
-    aria2c https://git.io/gclone.sh && bash gclone.sh && \
-    aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
-    unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
+#RUN curl https://rclone.org/install.sh | bash && \
+    #aria2c https://git.io/gclone.sh && bash gclone.sh && \
+    #aria2c https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip && \
+    #unzip fclone-v0.4.1-linux-amd64.zip && mv fclone-v0.4.1-linux-amd64/fclone /usr/bin/ && chmod +x /usr/bin/fclone && rm -r fclone-v0.4.1-linux-amd64
 
 #drive downloader
 RUN curl -L https://github.com/jaskaranSM/drivedlgo/releases/download/1.5/drivedlgo_1.5_Linux_x86_64.gz -o drivedl.gz && \
