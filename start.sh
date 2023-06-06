@@ -1,3 +1,3 @@
-git clone https://github.com/Anubisop17/Clone-BOT \app
-cd app
+git clone https://github.com/Anubisop17/Clone-BOT
+cd Clone-BOT
 python3 -m bot
