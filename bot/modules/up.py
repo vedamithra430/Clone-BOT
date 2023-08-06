@@ -25,14 +25,9 @@ def up(update, context):
         msg2 = sendMessage(f"Processing..",context.bot,update.message) 
         name = " ".join(map(str, args[1:]))
         name2 = f'file=@{name}'
-        result = subprocess.run(['curl', '-F',name2, 'https://api.anonfiles.com/upload'], stdout=subprocess.PIPE, stderr=subprocess.PIPE,text=True)
-        if result.returncode == 0:
-             match = re.search(r'"id":"(\w+)"', result.stdout)
-    
-        #file_id= re.search(rb'"id": "(\w+)"', result).group(1).decode()
-    
-        #file_id = re.search(r'"id":"(\w+)"', result.stdout) 
-        msg = f"{match}"
+        result = subprocess.run(['curl', '-F',name2, 'https://api.anonfiles.com/upload'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        file_id = re.search(r'"id":"(\w+)"', result.stdout.decode()).group(1)
+        msg = f"{file_id}"
         sendMessage(msg,context.bot,update.message)
         subprocess.run(["rm", "-rf",name])
         deleteMessage(context.bot, msg2)
