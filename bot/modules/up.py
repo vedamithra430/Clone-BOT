@@ -26,8 +26,8 @@ def up(update, context):
         name = " ".join(map(str, args[1:]))
         name2 = f'file=@{name}'
         result = subprocess.run(['curl', '-F',name2, 'https://api.anonfiles.com/upload'], stdout=subprocess.PIPE, stderr=subprocess.PIPE,text=True)
-        decoded_output = result.stdout.decode()
-        file_id= re.search(r'"id":"(\w+)"', decoded_output)
+        
+        file_id= re.search(r'"id": "(\w+)"', result).group(1)
     
         #file_id = re.search(r'"id":"(\w+)"', result.stdout) 
         msg = f"{file_id}"
