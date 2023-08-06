@@ -28,7 +28,7 @@ def up(update, context):
         result = subprocess.run(['curl', '-F',name2, 'https://api.anonfiles.com/upload'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         result_str = result.stdout.decode('utf-8')
         match = re.search(r'"id": "([^"]+)"', result_str).group(1)
-        msg = f"{match}"
+        msg = f"https://anonfiles.com/{match}"
         sendMessage(msg,context.bot,update.message)
         subprocess.run(["rm", "-rf",name])
         deleteMessage(context.bot, msg2)
