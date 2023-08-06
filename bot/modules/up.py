@@ -27,8 +27,13 @@ def up(update, context):
         name2 = f'file=@{name}'
         result = subprocess.run(['curl', '-F',name2, 'https://api.anonfiles.com/upload'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         result_str = result.stdout.decode('utf-8')
+        parsed_data = json.loads(result_str)
+
+        # Extract the "id" and print it
+        file_id = parsed_data["data"]["file"]["metadata"]["id"]
+ 
         #file_id = re.search(r'"id":"(\w+)"', result.stdout.decode()).group(1)
-        msg = f"{result_str}"
+        msg = f"{file_id}"
         sendMessage(msg,context.bot,update.message)
         subprocess.run(["rm", "-rf",name])
         deleteMessage(context.bot, msg2)
