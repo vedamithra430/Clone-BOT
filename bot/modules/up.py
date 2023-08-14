@@ -24,11 +24,10 @@ def up(update, context):
       if(len(args) > 1):
         msg2 = sendMessage(f"Processing..",context.bot,update.message) 
         name = " ".join(map(str, args[1:]))
-        name2 = f'file=@{name}'
-        result = subprocess.run(['curl', '-F',name2, 'https://api.anonfiles.com/upload'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        result_str = result.stdout.decode('utf-8')
-        match = re.search(r'"id": "([^"]+)"', result_str).group(1)
-        msg = f"https://anonfiles.com/{match}"
+        name2 = f'{name}'
+        result = subprocess.run(['curl', '-T', name2, 'https://pixeldrain.com/api/file/'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        file_id = re.search(r'"id":"(\w+)"', result.stdout.decode()).group(1)
+        msg = f"https://pixeldrain.com/api/file/{file_id}"
         sendMessage(msg,context.bot,update.message)
         subprocess.run(["rm", "-rf",name])
         deleteMessage(context.bot, msg2)
